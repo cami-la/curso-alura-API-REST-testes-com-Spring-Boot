@@ -1,0 +1,12 @@
+1. https://start.spring.io/
+* Adicionar apenas a dependência web
+* Importar para o Eclipse
+
+2. Criar um Controller para testar a aplicação
+* criar um novo pacote com .controller para agrupar as classes que serão controladores
+* criar a classe
+* utilizar a anotação @Controller para indicar que a classe é um controlador
+* criar um método que retorna uma String com a anotação @RequestMapping, que indica o caminho para acessar esse controlador
+* esse retorno significa a página (html, jsp, thymeleaf) que vamos retornar para o usuário quando a url conter o argumento passado no @RequestMapping
+* para efeito de teste, não queremos que o controller não procure a página que indicamos no retorno, logo, usaremos a anotação @Responsebody
+* a anotação @RequestBody significa que o valor retornado do método constituirá o corpo da resposta HTTP. Obviamente, uma resposta HTTP não pode conter objetos Java. Portanto, o este retorno é transformado em um formato adequado para aplicativos REST, normalmente JSON ou XML.

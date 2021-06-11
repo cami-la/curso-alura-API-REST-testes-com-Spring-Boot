@@ -1,0 +1,41 @@
+3. Vamos recriar a página de fórum da Alura
+* criar um novo pacote com .modelo para agrupar as classes que serão o domínio da aplicação
+* domínio da aplicação: também conhecida como camada de negócio ou de objetos de negócio, é aquela onde estão localizadas as classes que fazem parte do domínio do problema, ou seja, classes correspondentes a objetos que fazem parte da descrição do problema.
+* são as classes correspondes ao domínio da aplicação: Curso, Resposta, StatusTopico (enum), Topico e Usuario.
+http://www.inf.furb.br/~poo/tutoriais/poo-lab6.html
+* Atributos das classes:
+- Curso: onde o tópico foi aberto
+Long id; (Id do curso)
+String nome; (Nome do curso)
+String categoria; (categoria do curso)
+
+- Resposta: representa a resposta desse tópico
+Long Id;(Id da resposta)
+Topico topico; (qual tópico essa resposta pertence)
+LocalDateTime dataCriacao; (a data que a resposta foi publicada)
+Usuario autor; (quem é o autor dessa resposta)
+Boolean solucao = false; (se essa resposta é a solução ou não. Começa como false, pois precisa que alguém escolha essa resposta como solução e mude o status)
+
+- StatusTopico: enum que contém constantesn que representam os status no qual o tópico vai transitando
+NAO_RESPONDIDO; (o tópico já inicia nesse status)
+NAO_SOLUCIONADO; (quando chega uma resposta, o status muda para não solucionado até que o usuário que criou tópico mude esse status)
+SOLUCIONADO; (quando alguém (autor, moderador, administrador) considera uma resposta como a solução, ele muda o status do tópico para solucinado)
+FECHADO; (significa que ninguém mais pode adicionar respostas a esse tópico)
+
+- Topico: **classe principal do projeto
+Long id; (Id do tópico)
+String titulo; (título do tópico)
+String mensagem; (nesse caso, representa a própria dúvida)
+LocalDateTime dataDescricao; (dara que foi criado o tópico)
+StatusTopico status = StatusTopico.NAO_RESPONDIDO; (Ao iniciar um tópico, o status é setado automaticamente como não NAO_RESPONDIDO)
+Usuario usuario; (usuario criador do tópico)
+Curso curso; (curso onde está o tópico)
+List<Resposta> respostas = new ArrayList<Resposta>; (respostas dos usuarios para solucionar o topico)
+
+- Usuario: Representa um aluno cadastrado no fórum
+Long id; (Id do usuário)
+String nome; (Nome do usuário)
+String email; (email do usuário)
+String senha; (senha do usuário)
+
+*Criar os getters, setters e hashode.  

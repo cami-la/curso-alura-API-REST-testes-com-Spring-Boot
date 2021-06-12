@@ -1,0 +1,9 @@
+Nesta aula, vimos:
+
+1. Um resumo da história e evolução do Spring;
+2. Que, para criar um projeto com Spring Boot, utilizamos o Spring Initialzr, através do site https://start.spring.io;
+3. Como importar um projeto com Spring Boot na IDE Eclipse;
+4. Como é o pom.xml de uma aplicação que utiliza o Spring Boot;
+5. Que, para inicializar o projeto com Spring Boot, devemos utilizar a classe com o método main;
+6. Que, para criar um controller, utilizamos as anotações @Controller e @RequestMapping.
+

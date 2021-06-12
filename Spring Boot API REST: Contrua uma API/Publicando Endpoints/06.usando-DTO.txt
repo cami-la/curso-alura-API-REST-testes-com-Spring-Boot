@@ -1,0 +1,18 @@
+5. Troque a anotação @Controller -> @RestController.
+* Simplifica a aplicação e não precisamos mais utilizar a anotação @ResponseBody nos métodos
+
+6. Adicionar o módulo devTools no arquivo pom.xml
+* Serve para que o Spring reinicie o servidor automáticamente quando fizermos uma alteração no código.
+* O módulo DevTools inclui ferramentas utilitárias no projeto, dentre elas a Automatic Restart, que reinicia o servidor automaticamente ao detectar alterações no código fonte da aplicação.
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<scope>runtime</scope>
+</dependency>
+
+7. criar uma classe DTO (data transfer object) "TopicoDto" em um pacote novo .controller.dto.
+* Classe que serve para armazenar o que queremos retornar no método da classe Controller (por exemplo lista()), assim meu consigo controlar quais campos eu quero devolver
+* É uma boa prática criar essa classe, pois a classe List<Topico> a classe Topico é uma entidade do banco de dados, e utilizar ela para retorno, carregaria informações desnecessárias.
+* Assim, o retorno do método lista() será List<TopicoDto>
+* Essa classe não pode ter atributos com classes de domínio, ex: Usuario, Resposta e etc.
+* No construtor da classe DTO, passamos como argumento a classe que queremos pegar as informações, neste caso a classe Topico.

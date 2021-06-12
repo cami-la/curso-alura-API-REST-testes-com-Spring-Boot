@@ -8,5 +8,7 @@
 * utilizar a anotação @Controller para indicar que a classe é um controlador
 * criar um método que retorna uma String com a anotação @RequestMapping, que indica o caminho para acessar esse controlador
 * esse retorno significa a página (html, jsp, thymeleaf) que vamos retornar para o usuário quando a url conter o argumento passado no @RequestMapping
+* RequestMapping: a anotação é usada para mapear solicitações da web para métodos Spring Controller.
 * para efeito de teste, não queremos que o controller não procure a página que indicamos no retorno, logo, usaremos a anotação @Responsebody
 * a anotação @RequestBody significa que o valor retornado do método constituirá o corpo da resposta HTTP. Obviamente, uma resposta HTTP não pode conter objetos Java. Portanto, o este retorno é transformado em um formato adequado para aplicativos REST, normalmente JSON ou XML.
+* Por padrão, o Spring considera que o retorno do método é o nome da página que ele deve carregar, mas ao utilizar a anotação @ResponseBody, indicamos que o retorno do método deve ser serializado e devolvido no corpo da resposta.

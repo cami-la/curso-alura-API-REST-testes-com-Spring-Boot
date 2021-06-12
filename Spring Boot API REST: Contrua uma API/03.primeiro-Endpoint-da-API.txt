@@ -1,0 +1,6 @@
+4. Vamos contruir nosso primeiro Endpoint (endereço) que irá devolver uma lista com todos os tópicos que estão cadastrados no sistema
+* criar um controller para mapear o endereço e quando for chamado, retornar a lista
+* crie uma nova classe TopicosController com a anotação @Controller no package controller
+* crie o método lista() com o retorno List<Topico> e para mapear o endereço com a anotação @RequestMapping("/topico")
+* 
+ 

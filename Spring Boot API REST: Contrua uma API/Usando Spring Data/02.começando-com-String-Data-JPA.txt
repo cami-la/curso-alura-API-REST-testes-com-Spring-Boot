@@ -1,0 +1,45 @@
+8. Vamos criar a lógica para acessar os dados em um banco de dados
+* adicionar o Spring Boot JPA no nosso projeto que por padrão utiliza a implementação Hibernate
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+* adicionar o drive do banco de dados, no nosso caso H2 (banco de dados em memória)
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+</dependency>
+
+9. Configurar as informações do banco de dados no arquivo application.properties src/main/resources
+# datasource 
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:alura-forum
+spring.datasource.username=sa
+spring.datasource.password=
+
+# jpa 
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.defer-datasource-initialization=true
+
+
+# h2
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+10. Colocar a anotações em todas as classes do pacote model
+* na declaração da classe @Entity: é utilizada para informar que uma classe também é uma entidade do banco de dados
+* no atributo id:
+- @Id: informar ao JPA qual campo/atributo de uma entidade estará relacionado à chave primária da respectiva tabela no banco de dados.
+- @GeneratedValue(strategy = GenerationType.IDENTITY): é utilizada para informar que a geração do valor do identificador único da entidade será gerenciada pelo provedor de persistência (Hibernate)
+GenerationType.IDENTITY: Informamos ao provedor de persistência que os valores a serem atribuídos ao identificador único serão gerados pela coluna de auto incremento do banco de dados. 
+- @Enumerated(EnumType.STRING): faz com que o provedor de persistência grave o nome da constante do Enum e não a ordem de declaração do mesmo (padrão)
+- @ManyToOne: indica que temos um relacionamento muitos-para-um. Para fazer isso nós temos que identificar quem é o dono da relação. 
+No nosso caso, a tabela Topico é a proprietária, já que a coluna da foreign key está nela.
+- @OneToMany(mappedBy="topico)": Esta anotação define uma associação com outra entidade que tenha a multiplicidade de um-para-muitos.
+Definimos que um Topico possui uma lista de Resposta, ou seja, o Topico pode não ter Resposta, pode ter apenas uma Resposta ou pode ter varias Respostas, uma Resposta não precisa saber de qual Topico ela está associada, portanto temos um relacionamento unidirecional.
+mappedBy: Informa o atributo que é dono do relacionamento.
+
+
+
+

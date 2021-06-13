@@ -11,8 +11,9 @@ String categoria; (categoria do curso)
 
 - Resposta: representa a resposta desse tópico
 Long Id;(Id da resposta)
+String mensagem; (nesse caso, representa a própria dúvida)
 Topico topico; (qual tópico essa resposta pertence)
-LocalDateTime dataCriacao; (a data que a resposta foi publicada)
+LocalDateTime dataDescricao = LocalDateTime.now(); (dara que foi criado a resposta, neste caso, a data atual)
 Usuario autor; (quem é o autor dessa resposta)
 Boolean solucao = false; (se essa resposta é a solução ou não. Começa como false, pois precisa que alguém escolha essa resposta como solução e mude o status)
 
@@ -26,7 +27,7 @@ FECHADO; (significa que ninguém mais pode adicionar respostas a esse tópico)
 Long id; (Id do tópico)
 String titulo; (título do tópico)
 String mensagem; (nesse caso, representa a própria dúvida)
-LocalDateTime dataDescricao; (dara que foi criado o tópico)
+LocalDateTime dataDescricao = LocalDateTime.now(); (dara que foi criado o tópico, neste caso, a data atual)
 StatusTopico status = StatusTopico.NAO_RESPONDIDO; (Ao iniciar um tópico, o status é setado automaticamente como não NAO_RESPONDIDO)
 Usuario usuario; (usuario criador do tópico)
 Curso curso; (curso onde está o tópico)
@@ -39,3 +40,4 @@ String email; (email do usuário)
 String senha; (senha do usuário)
 
 *Criar os getters, setters e hashode.  
+

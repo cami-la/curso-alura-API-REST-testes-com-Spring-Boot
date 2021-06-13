@@ -1,0 +1,7 @@
+13. Vamos fazer consultas no banco de dados com filtros
+* Passar como parâmetro a String que será passada a URL para fazer o filtro. No nosso exemplo, no método lista()
+* Para filtrar por nome, criaremos o método  findByCurso_Nome(nomeCurso) - sendo Curso o atributo de Topico e Nome o atributo de Curso
+* O JPA tem um padrão de nomeclatura, se você utilizar o findByAtributoDaEntidade, você consegue fazer o filtro pois o JPA monta a Query.
+* Caso você não queira utilizar este padrão findBy, você pode criar seu próprio método para isso precisamos utilizar a anotação @Query e montar seguindo o padrão JPQL
+Feito isso, deve-se utilizar a anotação @Param("") antes do argumento do filtro 
+

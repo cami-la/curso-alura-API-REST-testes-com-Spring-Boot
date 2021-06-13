@@ -1,0 +1,10 @@
+Nesta aula, aprendemos:
+
+1. Que para evitar repetir a URL em todos os métodos, devemos utilizar a anotação @RequestMapping em cima da classe controller;
+2. Que para mapear requisições do tipo POST, devemos utilizar a anotação @PostMapping;
+3. Que para receber dados enviados no corpo da requisição, a boa prática é criar uma classe que também siga o padrão DTO (Data Transfer Object);
+4. Que a boa prática para métodos que cadastram informações é devolver o código HTTP 201, ao invés do código 200;
+5. Que para montar uma resposta a ser devolvida ao cliente da API, devemos utilizar a classe ResponseEntity do Spring;
+6. Que para testar requisições do tipo POST, precisamos utilizar alguma ferramenta de testes de API Rest;
+7. Como utilizar o Postman para testar uma API Rest;
+

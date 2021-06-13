@@ -11,6 +11,7 @@
 </dependency>
 
 9. Configurar as informações do banco de dados no arquivo application.properties src/main/resources
+* No arquivo application.properties, devem ser declaradas as configurações da aplicação, inclusive as relacionadas ao banco de dados dela.
 # datasource 
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.url=jdbc:h2:mem:alura-forum
@@ -39,6 +40,11 @@ No nosso caso, a tabela Topico é a proprietária, já que a coluna da foreign k
 - @OneToMany(mappedBy="topico)": Esta anotação define uma associação com outra entidade que tenha a multiplicidade de um-para-muitos.
 Definimos que um Topico possui uma lista de Resposta, ou seja, o Topico pode não ter Resposta, pode ter apenas uma Resposta ou pode ter varias Respostas, uma Resposta não precisa saber de qual Topico ela está associada, portanto temos um relacionamento unidirecional.
 mappedBy: Informa o atributo que é dono do relacionamento.
+
+11. Acesse o banco de dados H2
+* http://localhost/8080/h2-console
+* preencha o campo JDBC URL: jdbc:h2:mem:alura-forum (localizada no arquivo application.properties
+
 
 
 

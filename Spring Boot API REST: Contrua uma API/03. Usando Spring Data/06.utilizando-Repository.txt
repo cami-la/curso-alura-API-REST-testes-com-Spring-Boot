@@ -1,0 +1,7 @@
+12. Implementando a lógica para utilizar o banco de dados
+* crie um pacote repository para agrupar todas as interfaces que serão utilizadas para manipulação do banco de dados
+* cada interface criada deve estender da classe JpaRepository e passar como argumento no generics a entidqde e o tipo da chave primária (Id)
+* Injetar o Repository no Controller utilizando a anotação @Autowired:
+Autowired: fornece controle sobre onde e como a ligação entre os beans deve ser realizada. Pode ser usado para em métodos setter, no construtor, em uma propriedade ou métodos com nomes arbitrários e / ou vários argumentos.
+* alterar o método lista() usando o atributo que acabamos de injetar chamando o método topicoRepository.findAll() para listar todos os tópicos
+* não esquecer de deixar o contrutor default nas classes que representam entidades.

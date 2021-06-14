@@ -1,0 +1,6 @@
+15. transformar a resposta 200 -> 201
+* o método cadastrar() precisa ter o retorno ResponseEntity<TopicoDto> e mais um argumento (UriComponentsBuilder uriBuilder)
+* porque, o código 201 retorna o cabeçalho com a localização do topico cadastrado e as características dele. Para tal, precisamos criar uma URI 
+* uriBuider.path("/topico/{id}); dessa forma fica dinâmico, e o método retorna a uri topico + o id do topico que foi criado
+* .buildAndExpand(topico.getId()).toUri(); será o id do tópico que iremos criar ao chamar o método cadastrar e o toUri() faz a injeção
+* por fim, retornamos o ResponseEntity.created(uri).body(new TopicoDto(topico)); assim, criando a uri dinãmica que vai no cabeçalho e passando o topico criado new TopicoDto(topico);

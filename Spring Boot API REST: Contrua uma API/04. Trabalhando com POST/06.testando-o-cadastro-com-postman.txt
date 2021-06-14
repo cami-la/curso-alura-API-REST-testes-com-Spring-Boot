@@ -1,0 +1,3 @@
+16. Fazendo o teste da requisição Post
+* usaremos a ferramenta postman para disparar requisições de uma API REST
+* estudar sobre postman

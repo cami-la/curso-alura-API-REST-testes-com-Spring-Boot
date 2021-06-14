@@ -1,0 +1,11 @@
+14. Como cadastrar informações no banco de dados
+* colocar a anotação @RequestMapping("/urlGeral") na classe, todos os métodos que correspondem a esse controller terão o prefixo /urlGeral...
+* a anotação @GetMapping: é uma anotação composta que atua como um atalho para @RequestMapping(method = RequestMethod.GET) no método lista()
+* crie um novo método com a lógica para cadastro cadastrar(@RequestBody TopicoForm form) com a anotação @PostMapping e que recebe um parâmetro Form. 
+* colocar a anotação @PostMapping no método que 
+* Form é um dto sendo que para receber informações passadas pelo cliente
+* @RequestBody que dizer que o parâmetro vem no corpo da requisiçã́o e não na URL como o método GET
+* Esse método precisa retornar um tópico, logo teremos que converter o TopicoForm
+* criamos a class TopicoForm em um novo pacote form com os atributos: String titulo, String mensagem e String curso
+* criamos o método converter TopicoForm -> Topico. Este método recebe um CursoRepository já que o curso está como uma String mas na verdade é da classe Curso
+* criamos o CursoRepository para transformar a String curso em um Curso e assim preencher o construtor do Topico com um Curso

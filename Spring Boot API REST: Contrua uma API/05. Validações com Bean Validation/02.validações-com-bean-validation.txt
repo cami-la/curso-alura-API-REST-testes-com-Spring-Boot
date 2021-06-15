@@ -1,0 +1,15 @@
+17. Vamos aprneder sobre validação através de anotações
+* Validar a entrada do usuário é um requisito muito comum na maioria dos aplicativos. 
+* E a estrutura de validação do Java Bean se tornou o padrão de fato para lidar com esse tipo de lógica.
+* Adicione a dependencia do validation no pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+* Na classe TopicoForm, nos atributos coloque a anotações
+@NotNull (não pode ser null) - @NotEmpty (não pode estar vazio) - @Length(min = 5) (tamanho mínimo de 5 caracteres)
+* Em seguidqa, no método cadastrar, coloque a anotação @Valid antes do argumento form para indicar para o Spring que a classe TopicoForm tem umas validações a fazer
+* teste no postman
+* caso a validação não esteja funcionando, faça os seguintes passos rode o Maven clean e o Maven Install e reinicie a aplicação.
+ 
+

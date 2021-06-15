@@ -1,0 +1,26 @@
+18. Viu que quando tentamos validar e apresenta um erro, é retornado uma mensagem no corpo da requisição, vamos simplificar esta mensagem.
+* a lógica desta simplificação ficará fora do controller para ser utilizado em outras ocasiões
+* O próprio Spring tem uma solução chamada Controller Advicer
+* crie a classe ErroDeValidacaoHandler em um novo package config.validacao com a anotação @RestControllerAdvice
+* crie a classe handler(MethodArgumentNotValidException ex) com a anotação @ExceptionHandler como parâmetro (MethodArgumentNotValidException.class) que indica que houve um erro de validação
+* isso significa que quando acontecer um erro de validação o Spring chama esse método e faz o tratamento através da anotação @ResponseStatus(code = HttpStatus.BAD_REQUEST) que indica que apesar de ter sido tratado erro, ainda vai retornar 400
+* este método, retorna um List e no generics vamos passar numa nova classe Dto que simplifica o retorno dos atributos para nós: List<ErroDeFormularioDto>
+* Esse Dto representa o erro de algum campo
+* a classe ErroDeFormularioDto tem os atributos String campo (indica o campo do erro), String mensagem (indica a mensagem de erro)
+* no escopo do método handle, chamamos o objeto ex.getBindingResult().getFieldError() que retorna uma lista com o todos os erros associados a um campo, se houver.
+* note que o retorno do método handle retorna uma lista com  ErroDeFormularioDto e o objeto ex retorna uma lista de FieldError, logo, precisamos converter
+* utilizando o método forEach, vamos converter cada erro do topo FieldError -> ErroDeFormularioDto
+* iniciamos a lista que usaremos para guardar todos os erros convertidos List<ErroDeFormularioDto> dto = new ArrayList<ErroDeFormularioDto>();
+* no contrutor de cada erro, precisamos passar o campo que pegaremos do erro com o método e.getFild() e a mensagem do erro, precisamos injetar o atributo MessageSource messageSource com a anotação @Autowired
+* esse atributo é quem mapea a resposta do erro, próximo passo é colocar essa mensagem dentro no construtor do ErroDeFormularioDto
+* messageSource.getMessage(e, LocaleContextHolder.getLocale()) = e: o erro que estamos capturando, LocaleContextHolder.getLocale() que retorna o Locale (idioma) padrão do sistema ou d thread.
+* feito isso, o erro já está convertido e adicionamos na list: dto.add(erro)
+* feito esse tratamento de erro, não é preciso mexer no controller, o Spring já sabe que quando ocorrer um erro, chama essa classe e faz o devido tratamento
+* teste no postman
+
+
+
+ 
+
+
+

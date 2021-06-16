@@ -1,0 +1,6 @@
+23. Para finalizar o CRUD, vamos criar um método para deletar um tópico ResponseEntity<?> remover(@PathVariable Long id) 
+* criamos um método remover com a anotação @DeleteMapping("/{id}") e passamos como argumento desse método o @PathVariable Long id
+* na implementação deste método, chamamos o topicoRepository.deleteByid(id);
+* e não precisamos retornar nenhuma mensagem, apenas o status 200 ok. return ResponseEntity.ok().build(). 
+* o método build() indica que vamos contruir uma resposta sem corpo.
+* é uma boa prática colocar a anotação @Transactional em todas os métodos de CRUD

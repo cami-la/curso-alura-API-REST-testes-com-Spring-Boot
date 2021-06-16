@@ -1,0 +1,13 @@
+19. Agora vamos implementar uma funcionalidade de detalhar um tópico
+* vamos detahar um tópico: chega uma requisição na URL especifica e vamos detalhar apenas este tópico
+* criamos um novo método detalhar() com a anotação @GetMapping("{id}") que recebe o id dinâmico do tópico que quero detalhar
+* como argumento do método vamos colocar @PathVariable: utilizado quando o valor da variável é passada diretamente na URL, mas não como um parametro que você passa após o sinal de interrogação (?) mas sim quando o valor faz parte da url
+* na implementação deste método, vamos chamar o topicoRepository.getOne(id), passando o id do tópico que queremos encontrar. Esse métoodo getOne já existe no Spring e serve para retornar 1 elemento
+* e vamos retornar o TopicoDto(topico) passando o tópico que acabamos de recuperar
+
+20. Vamos criar um outro dto DetalhesDoTopicoDto para detalhar ainda mais essa pesquisa
+* atributos: Long id, String titulo, String mensagem, LocalDateTime dataCriaçao, String nomeAutor, StatusTopico status, List<RespostaDto> respostas;
+* Como criamos uma atributo list que nos retorna RespostasDto, precisamos criar esta classe e especificar os argumentos
+* atributos classe RepostaDto Long id, String mensagem, LocalDateTime dataCriacao, String nomeAutor
+* construtor recebendo como arqumento a classe Reposta, e voltamos para a classe 
+* atenção no construtor, para retornar a list, precisamos iniciar um ArrayList no construtor e trasnformar cada elemento em respostaDto

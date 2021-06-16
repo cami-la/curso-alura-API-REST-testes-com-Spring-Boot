@@ -1,0 +1,8 @@
+24. Antes de fazer uma requisição pedindo para retornar um topico passando o ID, precisamos verificar se esse id de fato existe
+Não é interessante devolver exceptions e stack traces para os clientes, em casos de erros na API Rest.
+* vá na classe detalhar e altere a linha de retornar o tópico pelo método findById(id) e o retorno do método será um ResponseEntity<DetalhesDoTopicoDto>
+* este método findById retorna um Optional e através do método isPresent() é que faremos a verificação
+* em caso de true, o retorno será:  esponseEntity.ok(new DetalhesDoTopicoDto(topico.get()))
+* false: ResponseEntity.notFound().build()
+
+25. Vamos alterar o método atualizar e remover da mesma forma.

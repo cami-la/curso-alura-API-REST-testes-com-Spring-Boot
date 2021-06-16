@@ -1,0 +1,19 @@
+21. Vamos criar um método de atualização  public ResponseEntity<TopicoDto> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoTopicoForm form)
+* este método retornará um ResponseEntity<TopicoDto> com a anotação @PutMapping("/{id}) e @Transactional
+* ResponseEntity deve representar a resposta HTTP inteira. Você pode controlar tudo o que for necessário: código de status, cabeçalhos e corpo.
+* PutMapping(): é usada para mapear solicitações HTTP PUT em métodos manipuladores específicos. @PutMapping é uma anotação composta que atua como um atalho para @ RequestMapping ( method = RequestMethod. PUT )
+* @Transactional faz o commit no final do método atualizar. Métodos anotados com @Transactional serão executados dentro de um contexto transacional.
+Ao finalizar o método, o Spring efetuará o commit automático da transação, caso nenhuma exception tenha sido lançada.
+* este método ResponseEntity<TopicoDto> recebe como argumendo o @PathVariable Long id, @RequestBody @Valid AtualizacaoTopicoForm
+* precisamos criar outro Form para dar acesso a alteração de alguns atributos do Topico
+* esse form tem os atributos String titulo e String mensagem + Getters e Setters
+* Feito isso, voltamnos para o método atualizar
+* na implementação do método, precisamos recuperar o tópico no banco de dados correspondente ao id que passamos como argumento e sobreescrever as informações deste tópico com as informações do aguemento form
+* vamos encapsular esta lógica de atualização na classe AtualizaçãoTopicoRepository
+* criamos o método atualizar que recebe um Long id, TopicoRepository topicoRepository 
+* recuperamos este tópico através do id, setamos o titulo e a mensagem, depois retornamos este topico
+* voltando para o método atualizar, utilizamos o método form.Atualizar passando o id que queremos e o repository 
+* em seguida, retornamos ResponseEntity.ok(new TopicoDto(topico)): método ok: Um atalho para criar um ResponseEntity com o corpo fornecido e o status definido como OK.
+
+
+ 

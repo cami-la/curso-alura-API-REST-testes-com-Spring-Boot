@@ -1,0 +1,11 @@
+01. Vamos alterar o método lista da classe TopicosController para paginar, ou seja, mostrar os tópicos aos poucos
+* primeiro, colocamos os argumentos int pagina e int quantidade para saber qual página queremos e a quantidade de tópicos queremos ver nesta página
+* Nos métodos com a anotação @GetMapping é importante colocar a anotação @RequestParam no argumento para indicar que os parametros vêm da URL e que são obrigatórios
+* Logo, antes de cada argumento colocaremos a anotação @RequestParam, apenas do argumento nomeCurso colocaremos a mais, a opção required=false: indica que o parâmetro vem na URL mas não é obrigatório
+* A própria JPA e Spring Datatem suporte para paginação
+* utilizaremos a interface Pageable e utilizamos a classe PageRequest.of(pagina, qtd);
+* agora passamos essa paginação como parâmetro do método find.All(paginacao)
+* fazer a alteração no retorno dos métodos, no lugar de List, utilizar a classe Page
+* Ao utilizar o objeto Page, além de devolver os registros, o Spring também devolve informações sobre a paginação no JSON de resposta , como número total de registros e páginas.
+
+ 

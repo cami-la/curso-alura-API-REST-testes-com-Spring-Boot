@@ -1,0 +1,13 @@
+07. Agora, vamos habilitar quais endereços vamos deixar públicos e quais vamos proteger
+* todas as configurações de segurança vão estar na classe SecurityConfigurations
+* na classe WebSecurityConfigurerAdapter têm métodos de autenticação e autorização que precisam ser sobreescritos de acordo com a nossa necessidade
+* vamos sobreescrever os 3 métodos configure, seguem os parâmetros de cada método e sua função
+AuthenticationManagerBuilder auth: configurações de autenticação
+HttpSecurity http: configurações de autorização
+WebSecurity web: configurações de recursos estáticos(js, css, imagens, etc.)
+
+08. Primeiro, vamos configurar o método configure que trata das autenticações
+* pegamos o parâmetro http.authorizeRequests()
+		.antMatchers(HttpMethod.GET, "/topicos").permitAll() - permite que qualquer pessoa tenha acesso a url topicos do método Get
+		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll(); - permite que qualquer pessoa tenha acesso a url /topicos/* do método Get
+		

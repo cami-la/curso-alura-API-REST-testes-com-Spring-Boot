@@ -1,0 +1,12 @@
+06. Precisamos implementar a segurança. E quem cuida dessa parte de autenticação e autorização é o Spring Security
+* baixar o módulo e adicionar como dependênmcia do nosso projeto
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+*Essa parte de segurança é feita toda via classe Java
+*crie um novo pacote config.security com a classe SecurityConfiguration e a anotação @EnableWebSecurity e @Configuration
+@EnableWebSecurity é esta anotação que habilita os recursos de segurança em nossa aplicação.
+@Configuration: indica que determinada classe possui métodos que expõe novos beans.
+* também precisamos herdar a classe WebSecurityConfigurerAdapter
+* com os passos acima, já habilitamos a segurança. Logo, os endpoints se tornam restritos, por padrão.

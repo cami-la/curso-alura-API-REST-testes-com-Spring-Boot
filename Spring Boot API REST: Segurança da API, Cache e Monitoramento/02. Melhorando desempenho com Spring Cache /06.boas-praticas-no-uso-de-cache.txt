@@ -1,2 +1,2 @@
-É interessante fazer um filtro de onde implementar o cache.
+05. É interessante fazer um filtro de onde implementar o cache.
 Dica: em situações que nunca ou raramente serão atualizados.

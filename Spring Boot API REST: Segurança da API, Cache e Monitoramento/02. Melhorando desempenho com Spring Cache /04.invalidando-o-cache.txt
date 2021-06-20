@@ -1,0 +1,5 @@
+04. Quando fizermos um novo cadastro, queremos que o Spring atualize o cache, ou seja limpando ele
+* fazemos isso utilizando a anotação @CacheEvict(value="listaDeTopicos", allEntries = true), neste caso, o value indica o cache que queremos limpar
+* Ela deveria ser utilizada nos métodos que alteraram os registros armazenados em cache pela API
+* Isso é importante para evitar que os clientes obtenham informações desatualizadas.
+* No parâmetro value devemos indicar os identificadores dos caches que deverão ser invalidados.

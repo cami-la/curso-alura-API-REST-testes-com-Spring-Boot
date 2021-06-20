@@ -3,4 +3,5 @@
 * Vá na classe ForumApplication e coloque a anotação @EnableSpringDataWebSupport:  anotação para habilitar os beans do spring que cuidam dessa parte de paginação/ordenação
 * agora, precisamos passar na url os parametros da paginacao em inglês, por exemplo: http://localhost:8080/topicos?page=0&size=10&sort=id,asc&sort=dataCriacao,desc
 * caso você queira dizer um modo de ordenação caso não seja passado nenhum parâmetro na url, use a anotação @PageableDefault(sort="id", direction= Direction.DESC, page = 0, size = 10);
+* @PageableDefault: Indicar o padrão de paginação/ordenação ao Spring, quando o cliente da API não enviar tais informações
 

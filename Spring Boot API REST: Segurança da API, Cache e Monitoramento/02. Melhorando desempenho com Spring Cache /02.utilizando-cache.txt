@@ -1,0 +1,13 @@
+03. A ideia de utilizar o cache é guardar o retorno daquele método
+*  A primeira vez que eu chamar aquele método ele vai executar linha por linha aquele método, vai devolver o resultado e nas próximas chamadas ele devolve o que ficou na memória
+* A string (value) passada como parâmetro para a anotação @Cacheable funciona como um identificador único do cache.
+* Precisamos adicionar esse móduto no pom.xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
+* Ir na classe main e habilitar o chache com a anotação @EnableCaching
+* No método que queremos implementar o cache, utilizamos a anotação com value único @Cache(value="listaDeTopicos")
+* vamos habilitar o log do Spring JPA para saber se o cache está mesmo funcionando
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.format_sql=true

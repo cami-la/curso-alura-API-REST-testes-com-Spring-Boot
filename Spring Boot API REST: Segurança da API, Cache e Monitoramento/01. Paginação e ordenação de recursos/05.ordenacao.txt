@@ -1,0 +1,5 @@
+02. além decidir qual página vamos ter os tópicos, agora vamos colocar em uma ordem específica
+* vamos colocar outro parâmetro no médoto lista( String ordenacao) que significa passar por qual atributo queremos ordenar essa lista de tópicos
+* passaremos essa String ordenação como parâmetro do da paginacao, a classe PageRequest.of(pagina, qtd, ordenacao)
+* também passaremos a ordenação, caso queira crescente ou decrescente por exemplo PageRequest.of(pagina, qtd, Direction.ASC, ordenacao)
+

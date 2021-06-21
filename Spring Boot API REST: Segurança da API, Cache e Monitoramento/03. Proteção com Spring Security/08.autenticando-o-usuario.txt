@@ -1,0 +1,38 @@
+12. Formulário de autenticação criado pelo Spring, agora vamos dizer ao botão Sign in qual classe chamar quando clicamos nele
+* agora vamos implementar a lógica no método configure(AuthenticationManagerBuilder auth)
+* pegamos o parâmetro auth e chamamos o método auth.userDetailsService(autenticacaoService) que recebe um service que vamos criar
+
+13. criando um service
+* criamos uma classe AutenticacaoService com a anotação @Service e implementando a interface UserDetailsService com seu método loadUserByUsername(String username);
+A classe que implementa essa interface geralmente contém uma lógica para validar as credenciais de um cliente que está se autenticando.
+
+14. criando um repository Usuario para poder ter acesso as informações do usuário no banco de dados
+* interface UsuarioRepository extends JpaRepository<Usuario, Long>;
+* e com o atributo Optional<Usuario> findByEmail(String Email) para puder encontrar o email.
+
+15. voltando para a service
+* criamos um atributo UsuarioRepository usuarioRepository; com a anotação @AutoWired
+* no método loadUserByUsername chamamos esse atributo e pedimos para filtrar o username através do método findByEmail(username)
+* fazemos a verificação if(usuario.isPresent()) return usuario.get(); ou então throw new UsernameNotFoundException("Dados inválidos!");
+
+16.
+A lógica é o seguinte: quando clicamos no botão sign in o próprio Spring é quem chama o service, não temos um controller para chamar ela.
+* o controller sar que é para chamar esta classe
+
+17. voltando para o SecurityConfigurations
+* faça a injeção de dependencias AutenticacaoService autenticacaoService;
+* e auth.userDetailsService(this.autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
+Aqui, pedimos para codificar a senha através da classe BCryptPasswordEncoder
+
+18.Vamos criar o hash e colocar no lugar da senha 1234 que está no arquivo data.sql
+* implementamos um método main main na classe  SecurityConfigurations
+* será gerado o hash no console, pegamos esse hash e colocamos no lugar de 1234
+/*public static void main(String[] args) {
+		System.out.println(new BCryptPasswordEncoder().encode("123456"));
+}*/
+
+
+
+
+
+

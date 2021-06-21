@@ -2,6 +2,7 @@
 * no mesmo método configure que nós liberamos os acessos, vamos chamar os métodos .anyRequest().authenticated();
 * isso quer dizer que qualquer outra requisição precisa ser autenticada
 * .anyRequest().authenticated(); -> isso quer dizer que qualquer outra requisição precisa ser autenticada
+Para indicar que outras URLs que não foram configuradas devem ter acesso restrito
 
 10. vamos implementar essa parte de autenticação
 * precisamos indicar ao Spring que a classe que representa o usuário no sistema. Fazemos isso implementando a interface UserDetails e implementar os métodos

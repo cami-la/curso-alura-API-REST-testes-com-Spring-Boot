@@ -1,0 +1,19 @@
+09. agora vamos restringir os acessos
+* no mesmo método configure que nós liberamos os acessos, vamos chamar os métodos .anyRequest().authenticated();
+* isso quer dizer que qualquer outra requisição precisa ser autenticada
+* .anyRequest().authenticated(); -> isso quer dizer que qualquer outra requisição precisa ser autenticada
+
+10. vamos implementar essa parte de autenticação
+* precisamos indicar ao Spring que a classe que representa o usuário no sistema. Fazemos isso implementando a interface UserDetails e implementar os métodos
+* nos métodos password e username, implementamos no corpo do méodo this.senha e this.email
+* nos outros métodos retornamos true, pois não iremos fazer essa autenticação tão refinada
+* no método que retorna uma collection, precisamos criar um atributo que retorna os possíveis perfis do usuário
+* criaremos um list de Perfil com a anotação @ManyToMany(fetch = FetchType.EAGER)
+* criando a classe Perfil com os atributos Long Id e String nome e seus getters e setters
+* precisamos implementar a interface GrantedAuthority e seu método getAuthority() retornando o nome do perfil
+* pedimos para a própria IDE gerar o seralID (opcional)
+
+11. voltando para o método configure da classe SecurityConfigurations
+* chamandos o método .and().formLogin() -> O Spring tem um formulário de autenticação
+ 
+

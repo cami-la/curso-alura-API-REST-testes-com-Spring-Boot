@@ -15,5 +15,6 @@ private AuthenticationManager authManager;
 } catch (AuthenticationException e) {
 	return ResponseEntity.badRequest().build();
 }
-
+* porém, antes de retornar ResponseEntity.ok().build() vamos gerar um token. Para tal, criaremos uma classe TokenService para isolar a lógica de geração do Token e ele recebe um Authentication
+* 
 

@@ -1,0 +1,23 @@
+19. Precisamos deixar nossa aplicação stateless
+* até este ponto, nossa aplicação está da maneira tradicional, salvando cada sessão em memória e guardando o estado do usuário
+* isso fere os conceitos ReST, pois quando tivermos um monte de clientes, vamos precisar ocupar espaço de memória para cada um deles
+
+20. Json web Token
+* primeiro, vamos baixar a dependência
+<dependency>
+	<groupId>io.jsonwebtoken</groupId>
+	<artifactId>jjwt</artifactId>
+	<version>0.9.1</version>
+</dependency>
+* vamos na classe SpringConfigurations 
+* alteramos a classe configure (HttpSecurity http)
+* tiramos o form() e desabilitamos o csrf().disable()
+* .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+Com esses métodos, dizemos ao Spring para não criar uma sessão pois iremos trabalhar de maneira stateless
+* já que nós tiramos o .form(), perdemos a página de login e o controller desta página, logo precisamos criar.
+
+21. Criando o controller de autenticação
+* no pacote controller, criamos a classe AutenticacaoController com as anotações @RestController e @RequestMapping("/auth")
+* criamos o método public ResponseEntity<?> autenticar(@RequestBody @Valid LoginForm form) que irá fazer a autenticação
+* criamos a classe LoginForm com os atributos email e senha
+ 

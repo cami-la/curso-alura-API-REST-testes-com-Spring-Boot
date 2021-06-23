@@ -62,7 +62,11 @@ public class Usuario implements UserDetails {
 			return false;
 		return true;
 	}
+	
 
+	public Long getId() {
+		return id;
+	}
 
 	public String getNome() {
 		return nome;

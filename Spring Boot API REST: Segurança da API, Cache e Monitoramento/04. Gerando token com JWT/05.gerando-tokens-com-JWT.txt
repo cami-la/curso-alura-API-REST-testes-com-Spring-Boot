@@ -1,0 +1,19 @@
+22. vamos implementar a lógica de autenticação, logo, precisamos injetar uma classe chamada AutheticationManager authManager;
+private AuthenticationManager authManager;
+* voltamos na classe SpringConfigurations e vamos fazer a injeção de dependência dessa classe
+* a classe que herdamos WebSecurityConfigureAdapter tem um método que faz essa injeção, 
+* neste caso, é só sobrescrever a classe authenticationManager e anotar com @Bean
+* voltando para AutenticacaoController
+* utilizaremos métodos do atributo que authManager;
+* authManager.authenticate(dadosLogin); //método que faz a autenticação
+* este método recebe um atributo UsernamePasswordAuthenticationToken(), logo vamos criar um método no LoginForm para fazer esta conversão;
+* na classe LoginForm converter() return new UsernamePasswordAuthenticationToken(this.senha, this.email);
+* Se os dados estiverem errados, gera uma Exception, logo, vamos tratar envolvendo no try-catch e devolver um erro 400 caso não dê certo
+* try {
+	Authentication authenticate = authManager.authenticate(dadosLogin);
+	return ResponseEntity.ok().build();			
+} catch (AuthenticationException e) {
+	return ResponseEntity.badRequest().build();
+}
+
+

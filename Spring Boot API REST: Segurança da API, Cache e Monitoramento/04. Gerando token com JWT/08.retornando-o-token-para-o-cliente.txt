@@ -1,0 +1,5 @@
+24. Agora, temos que manda o token como resposta junto com o ResponseEntiry.ok().build():
+* dento do Ok() mandaremos um new TokenDto, classe que servirá para mandar as informações do token
+* no construtor desta classe, recebemos o token que queremos enviar e uma String pré-definida pelo protocolo HTTP "Bearer"
+* criando a classe TokenDto no pacote dto, com seus getters e setters já que como dito anteriormente, recebe 2 Strings, o token e a string HTTP
+ 

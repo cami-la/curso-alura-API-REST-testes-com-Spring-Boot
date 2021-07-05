@@ -16,7 +16,7 @@ public class TokenService {
 	@Value("${forum.jwt.expiration}")
 	private String expiration;
 	
-	@Value("${forun.jwt.secret}")
+	@Value("${forum.jwt.secret}")
 	private String secret;
 	
 	public String gerarToken(Authentication authentication) {

@@ -11,11 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Topico {
+
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
@@ -28,16 +28,16 @@ public class Topico {
 	@ManyToOne
 	private Curso curso;
 	@OneToMany(mappedBy = "topico")
-	private List<Resposta> respostas = new ArrayList<Resposta>();
+	private List<Resposta> respostas = new ArrayList<>();
 	
-	public Topico () {}
-
+	public Topico() {
+	}
+	
 	public Topico(String titulo, String mensagem, Curso curso) {
 		this.titulo = titulo;
 		this.mensagem = mensagem;
 		this.curso = curso;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -46,7 +46,6 @@ public class Topico {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -65,7 +64,6 @@ public class Topico {
 		return true;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
@@ -73,7 +71,6 @@ public class Topico {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getTitulo() {
 		return titulo;
@@ -130,6 +127,5 @@ public class Topico {
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
 	}
-	
-	
+
 }

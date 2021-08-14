@@ -55,7 +55,6 @@ public class TopicoController {
 		} else {
 			topicos = topicoRepository.findByCurso_Nome(nomeCurso, paginacao);
 		}
-
 		return TopicoDto.converter(topicos);
 	}
 
@@ -107,6 +106,5 @@ public class TopicoController {
 			return ResponseEntity.ok().build();
 		} else
 			return ResponseEntity.notFound().build();
-
 	}
 }

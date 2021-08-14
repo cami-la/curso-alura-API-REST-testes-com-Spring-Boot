@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 public class Usuario implements UserDetails {
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,16 +26,7 @@ public class Usuario implements UserDetails {
 	private String senha;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Perfil> perfis = new ArrayList<Perfil>();
-	
-	public Usuario () {}
-	
-	public Usuario(String nome, String email, String senha) {
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-
+	private List<Perfil> perfis = new ArrayList<>();
 
 	@Override
 	public int hashCode() {
@@ -44,7 +35,6 @@ public class Usuario implements UserDetails {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -62,10 +52,13 @@ public class Usuario implements UserDetails {
 			return false;
 		return true;
 	}
-	
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -126,5 +119,5 @@ public class Usuario implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 }

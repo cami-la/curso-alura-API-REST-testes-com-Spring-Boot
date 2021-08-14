@@ -15,8 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
-public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
-	
+public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
+
 	@Autowired
 	private AutenticacaoService autenticacaoService;
 	
@@ -26,13 +26,13 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		return super.authenticationManager();
 	}
 	
-	//configurações de autenticação
+	//Configuracoes de autenticacao
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(this.autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
+		auth.userDetailsService(autenticacaoService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
-	//configurações de autorização
+	//Configuracoes de autorizacao
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
@@ -44,13 +44,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
-	//configurações de recursos estáticos(js, css, imagens, etc.)
+	
+	//Configuracoes de recursos estaticos(js, css, imagens, etc.)
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	}
-	
-	/*public static void main(String[] args) {
-		System.out.println(new BCryptPasswordEncoder().encode("123456"));
-	}*/
 	
 }
